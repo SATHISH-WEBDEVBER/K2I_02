@@ -8,6 +8,7 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
+app.set("trust proxy", 1);
 
 // ─── Create upload directories ────────────────────────────────────────────────
 ["uploads", "uploads/profiles", "uploads/videos", "uploads/docs"].forEach((dir) => {

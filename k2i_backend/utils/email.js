@@ -3,8 +3,8 @@ const nodemailer = require("nodemailer");
 const createTransporter = () =>
   nodemailer.createTransport({
     host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.EMAIL_PORT) || 587,
-    secure: false,
+    port: parseInt(process.env.EMAIL_PORT) || 465, // <-- Updated to secure port 465
+    secure: true, // <-- Updated to true for cloud hosting
     auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
     tls: { rejectUnauthorized: false },
   });
@@ -50,7 +50,7 @@ const sendOtpEmail = async (email, name, otp, type = "login") => {
           </div>
           <div class="warn">⚠️ Never share this OTP. K2I team will never ask for it.</div>
         </div>
-        <div class="ftr">© 2025 K2I | From Knowledge to Intelligence</div>
+        <div class="ftr">© 2026 K2I | From Knowledge to Intelligence</div>
       </div></body></html>`,
   });
 };
@@ -79,7 +79,7 @@ const sendWelcomeEmail = async (email, name) => {
           <p>Hi <strong>${name}</strong>,</p>
           <p>Your account has been created. Explore our tutorials, video guides, projects in Tamil & English.</p>
         </div>
-        <div class="ftr">© 2025 K2I | From Knowledge to Intelligence</div>
+        <div class="ftr">© 2026 K2I | From Knowledge to Intelligence</div>
       </div></body></html>`,
   });
 };
@@ -111,7 +111,7 @@ const sendPasswordResetEmail = async (email, name, resetToken) => {
           <div style="text-align:center"><a href="${resetUrl}" class="btn">Reset Password</a></div>
           <div class="warn">⚠️ Expires in 30 minutes.</div>
         </div>
-        <div class="ftr">© 2025 K2I</div>
+        <div class="ftr">© 2026 K2I</div>
       </div></body></html>`,
   });
 };
