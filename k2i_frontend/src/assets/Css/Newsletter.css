@@ -1,0 +1,51 @@
+.newsletter-section {
+  background-color: #e0f7f6;
+  padding: 70px 40px;
+}
+
+.newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #cdecea, #b0eeea);
+  border-radius: 24px;
+  padding: 50px;
+  border: 1px solid #c6cedc;
+}
+
+.newsletter-gif img { width: 200px; border-radius: 12px; }
+
+.newsletter-content h2 {
+  font-size: 2rem; font-weight: 900;
+  color: #002b36; margin-bottom: 12px;
+}
+
+.newsletter-content p { color: #6b7280; margin-bottom: 25px; font-size: 1rem; line-height: 1.5; }
+
+.newsletter-form { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.newsletter-form input {
+  flex: 1; min-width: 220px;
+  padding: 12px 18px;
+  border: 2px solid #c6cedc; border-radius: 30px;
+  font-size: 0.95rem; outline: none;
+  transition: border-color 0.3s;
+  background: white;
+}
+
+.newsletter-form input:focus { border-color: #14655b; }
+
+.newsletter-success {
+  display: flex; align-items: center; gap: 10px;
+  color: #14655b; font-weight: 700; font-size: 1.1rem;
+}
+
+.newsletter-success i { font-size: 1.5rem; }
+
+@media (max-width: 768px) {
+  .newsletter-inner { flex-direction: column; text-align: center; padding: 30px; }
+  .newsletter-form { justify-content: center; }
+}

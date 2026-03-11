@@ -1,0 +1,112 @@
+.offer-container {
+    background-color: #e0f7f6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.offer-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #002b36;
+    margin-bottom: 10px;
+}
+
+.card-text{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #6b7280;
+}
+
+.whatweoffer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 30px;
+}
+
+.offer-card {
+    background-color: #cdecea;
+    border: 1px solid #c6cedc;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+    margin-bottom: 16px;
+}
+
+.icon-circle {
+    background-color: #002b36;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto;
+}
+
+.card-text {
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Tamil Style */
+.offer-title-ta {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.card-text-ta {
+    color: #374151;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .whatweoffer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:670px){
+    .offer-title-ta{
+        font-size: 1.6rem;
+    }
+    .card-text-ta{
+        font-size: .9rem;
+    }
+}
+
+@media (max-width:470px){
+    .offer-title-ta{
+        font-size: 1.3rem;
+    }
+    .card-text-ta{
+        font-size: .8rem;
+    }
+}
+
+@media (max-width:390px){
+    .offer-title-ta{
+        font-size: 1.3rem;
+    }
+    .card-text-ta{
+        font-size: .7rem;
+    }
+}

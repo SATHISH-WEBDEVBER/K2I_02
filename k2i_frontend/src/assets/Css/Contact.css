@@ -1,0 +1,139 @@
+.contact-page { background-color: #e0f7f6; min-height: 100vh; }
+
+.contact-hero {
+  background: linear-gradient(135deg, #002b36 0%, #14655b 60%, #47ffeb 100%);
+  padding: 60px 20px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 50px;
+}
+
+.contact-hero-gif img { width: 200px; border-radius: 16px; margin-bottom: 20px; }
+
+.contact-hero h1 {
+  font-size: 2.8rem; font-weight: 900; color: white; margin-bottom: 12px;
+}
+
+.contact-hero p { color: #a0d8d4; font-size: 1.1rem; }
+
+/* Main */
+.contact-main {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; padding: 60px 40px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.contact-form-card {
+  background: white; border-radius: 20px;
+  padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-form-card h2 { font-size: 1.6rem; font-weight: 800; color: #002b36; margin-bottom: 25px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+  display: block; font-size: 0.9rem; font-weight: 600; color: #002b36; margin-bottom: 6px;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%; padding: 12px 16px;
+  border: 2px solid #e5e7eb; border-radius: 12px;
+  font-size: 0.95rem; outline: none; transition: border-color 0.3s;
+  background: #f9fafb; font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus { border-color: #14655b; background: white; }
+
+.contact-submit-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #002b36, #14655b);
+  color: white; padding: 14px 30px; border: none;
+  border-radius: 30px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: all 0.3s ease; width: 100%;
+  justify-content: center;
+}
+
+.contact-submit-btn:hover { background: linear-gradient(135deg, #14655b, #47ffeb); color: #002b36; transform: translateY(-2px); }
+
+.contact-success {
+  text-align: center; padding: 40px 20px;
+}
+
+.contact-success i { font-size: 3rem; color: #14655b; margin-bottom: 15px; display: block; }
+.contact-success p { color: #002b36; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+.contact-success button {
+  background: #002b36; color: white; border: none;
+  padding: 10px 24px; border-radius: 25px; cursor: pointer;
+  font-size: 0.9rem; transition: all 0.3s;
+}
+
+/* Info */
+.contact-info-section h2 {
+  font-size: 1.6rem; font-weight: 800; color: #002b36; margin-bottom: 25px;
+}
+
+.contact-info-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+
+.info-card {
+  display: flex; align-items: center; gap: 15px;
+  background: #cdecea; border: 1px solid #c6cedc;
+  border-radius: 14px; padding: 15px 20px;
+  text-decoration: none; transition: all 0.3s ease;
+}
+
+.info-card:hover { transform: translateX(5px); background: #b8e8e5; }
+
+.info-card i {
+  font-size: 1.4rem; color: #002b36;
+  width: 40px; text-align: center;
+}
+
+.info-card h4 { font-size: 0.9rem; font-weight: 700; color: #002b36; margin-bottom: 2px; }
+.info-card p { font-size: 0.8rem; color: #6b7280; }
+
+.contact-gif-box img { width: 100%; border-radius: 16px; }
+
+/* FAQ */
+.faq-section { padding: 60px 40px; max-width: 800px; margin: 0 auto; }
+
+.faq-section h2 {
+  text-align: center; font-size: 2.2rem; font-weight: 900; color: #002b36; margin-bottom: 40px;
+}
+
+.faq-item {
+  background: #cdecea; border: 1px solid #c6cedc;
+  border-radius: 14px; margin-bottom: 12px; overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px; background: transparent; border: none;
+  font-size: 0.95rem; font-weight: 700; color: #002b36;
+  cursor: pointer; text-align: left; gap: 10px;
+}
+
+.faq-question i { color: #14655b; flex-shrink: 0; }
+
+.faq-answer { padding: 0 22px 18px; }
+.faq-answer p { color: #6b7280; line-height: 1.6; font-size: 0.9rem; }
+
+.faq-open { border-color: #14655b; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+@media (max-width: 900px) {
+  .contact-main { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-hero h1 { font-size: 2rem; }
+  .faq-section { padding: 40px 20px; }
+}
+
+@media (max-width: 600px) {
+  .contact-main { padding: 30px 20px; }
+  .contact-hero { 
+    flex-direction: column; text-align: center;
+    gap: 20px;}
+}

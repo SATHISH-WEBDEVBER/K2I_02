@@ -1,0 +1,95 @@
+.footer {
+  background-color: #002b36;
+  color: white;
+  padding: 50px 40px 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .footer-logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #47ffeb;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  color: #a0b4b8;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  width: 38px; height: 38px;
+  background-color: #14655b;
+  color: white;
+  display: flex; justify-content: center; align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background-color: #47ffeb;
+  color: #002b36;
+  transform: translateY(-4px);
+}
+
+.footer-links-group h4 {
+  color: #47ffeb;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links-group ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links-group ul li a,
+.footer-links-group ul li span {
+  color: #a0b4b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-group ul li a:hover { color: #47ffeb; }
+
+.footer-bottom {
+  border-top: 1px solid #14655b;
+  padding-top: 20px;
+  text-align: center;
+  color: #a0b4b8;
+  font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer { padding: 30px 20px 15px; }
+}

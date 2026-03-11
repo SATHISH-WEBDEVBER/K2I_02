@@ -1,0 +1,296 @@
+/* ══════════════════════════════════════════════════════
+   K2I User Dashboard – matches site theme
+   ══════════════════════════════════════════════════════ */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: #001e28;
+  color: #FFF8F0;
+  padding: 0;
+}
+
+/* ── Hero Banner ── */
+.dashboard-banner {
+  background: linear-gradient(135deg, #002b36 0%, #0a3f36 50%, #14655b 100%);
+  padding: 48px 24px 40px;
+  text-align: center;
+  border-bottom: 1px solid rgba(71, 255, 235, 0.12);
+}
+
+.dashboard-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #14655b, #47ffeb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #002b36;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border: 3px solid rgba(71, 255, 235, 0.35);
+  position: relative;
+}
+
+.dashboard-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashboard-banner h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #FFF8F0;
+  margin-bottom: 4px;
+}
+
+.dashboard-banner .role-badge {
+  display: inline-block;
+  background: rgba(71, 255, 235, 0.15);
+  border: 1px solid rgba(71, 255, 235, 0.3);
+  color: #47ffeb;
+  padding: 3px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.dashboard-banner p {
+  color: rgba(255, 248, 240, 0.55);
+  font-size: 0.9rem;
+}
+
+/* ── Container ── */
+.dashboard-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Card ── */
+.dash-card {
+  background: rgba(255, 248, 240, 0.04);
+  border: 1px solid rgba(71, 255, 235, 0.12);
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.3s;
+}
+.dash-card:hover { border-color: rgba(71, 255, 235, 0.22); }
+
+.dash-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #47ffeb;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(71, 255, 235, 0.1);
+  padding-bottom: 12px;
+}
+
+/* ── Profile Info rows ── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-item label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 248, 240, 0.4);
+  font-weight: 600;
+}
+
+.profile-item span {
+  font-size: 0.95rem;
+  color: #FFF8F0;
+  font-weight: 500;
+}
+
+.profile-item span.empty {
+  color: rgba(255, 248, 240, 0.3);
+  font-style: italic;
+}
+
+/* ── Edit Form ── */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 248, 240, 0.7);
+}
+
+.edit-field input,
+.edit-field textarea {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(71, 255, 235, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #FFF8F0;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.25s;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.edit-field input:focus,
+.edit-field textarea:focus {
+  border-color: #47ffeb;
+  box-shadow: 0 0 0 3px rgba(71, 255, 235, 0.1);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: linear-gradient(135deg, #14655b, #47ffeb);
+  color: #002b36;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255, 248, 240, 0.55);
+  border: 1px solid rgba(255, 248, 240, 0.2);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { color: #FFF8F0; border-color: rgba(255, 248, 240, 0.45); }
+
+.btn-danger {
+  background: transparent;
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-danger:hover { background: rgba(255, 107, 107, 0.1); }
+
+/* ── Alert ── */
+.dash-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 0.87rem;
+  animation: fadeUp 0.3s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dash-alert-success {
+  background: rgba(71, 255, 235, 0.1);
+  border: 1px solid rgba(71, 255, 235, 0.3);
+  color: #47ffeb;
+}
+.dash-alert-error {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  color: #ff9999;
+}
+
+/* ── Joined date chip ── */
+.joined-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(71, 255, 235, 0.08);
+  border: 1px solid rgba(71, 255, 235, 0.2);
+  color: rgba(255, 248, 240, 0.6);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+/* ── Change Password form ── */
+.cpw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cpw-input-wrap {
+  position: relative;
+}
+.cpw-input-wrap input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(71, 255, 235, 0.2);
+  border-radius: 8px;
+  padding: 10px 40px 10px 14px;
+  color: #FFF8F0;
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.25s;
+}
+.cpw-input-wrap input:focus { border-color: #47ffeb; }
+
+.cpw-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 248, 240, 0.4);
+  cursor: pointer;
+  padding: 0;
+}
+.cpw-eye:hover { color: #47ffeb; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .dash-card { padding: 20px 16px; }
+  .dashboard-banner { padding: 32px 16px 28px; }
+}

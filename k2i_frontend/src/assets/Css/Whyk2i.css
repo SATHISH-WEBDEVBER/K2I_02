@@ -1,0 +1,167 @@
+.abt-text {
+    text-align: center;
+    margin: 30px 20px;
+}
+
+.k2i {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #002b36;
+    padding-left: 10px;
+}
+
+.abt-text-title-en {
+    font-size: 2.1rem;
+    margin: 30px 0px;
+    color: #6b7280;
+}
+
+.abt-text-para-en {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 210px;
+    color: #6b7280;
+}
+
+.abt-main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    margin: 0px 40px;
+}
+
+.abt-content-ul li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: start;
+    list-style: none;
+    background-color: #cdecea;
+    border: 1px solid #c6cedc;
+    border-radius: 8px;
+    padding: 20px 20px;
+    margin: 10px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.abt-icon {
+    background-color: #002b36;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    border-radius: 50%;
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abt-image img {
+    width: auto;
+    height: 600px;
+}
+
+/* Tamil Style */
+.abt-text-title-ta {
+    font-size: 2.1rem;
+    margin: 15px 0px;
+    color: #6b7280;
+}
+
+.abt-text-para-ta {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 210px;
+    color: #6b7280;
+}
+
+@media (max-width: 1280px) {
+    .abt-main-container {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 1030px) {
+    .abt-text-para {
+        padding: 10px 90px;
+    }
+
+    .abt-image img {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 850px) {
+    .abt-text-para {
+        padding: 10px 70px;
+    }
+}
+
+@media (max-width: 610px) {
+    .abt-text-para {
+        padding: 10px 30px;
+        font-size: 1.1rem;
+    }
+
+    .abt-text-title {
+        font-size: 1.8rem;
+    }
+
+    .k2i{
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .abt-text-para {
+        padding: 8px 15px;
+        font-size: .9rem;
+    }
+
+    .abt-text-title {
+        font-size: 1.4rem;
+    }
+
+    .k2i{
+        font-size: 1.5rem;
+    }
+
+    .abt-image img {
+        width: 380px;
+        height: 380px;
+    }
+    .abt-main-container{
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .abt-text-para {
+        padding: 8px 7px;
+        font-size: .9rem;
+    }
+
+    .abt-text-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .k2i{
+        font-size: 1.3rem;
+    }
+
+    .abt-image img {
+        width: 300px;
+        height: 300px;
+    }
+    .abt-main-container{
+        gap: 2rem;
+    }
+}

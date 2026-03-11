@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: #e0f7f6;
+  font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+}
+
+.fade { opacity: 0; transition: opacity 0.3s ease-in-out; }
+.fade.show { opacity: 1; }
+
+.tamil-text {
+  font-family: 'Noto Sans Tamil', sans-serif;
+}
+
+/* Scroll bar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #e0f7f6; }
+::-webkit-scrollbar-thumb { background: #14655b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #002b36; }
