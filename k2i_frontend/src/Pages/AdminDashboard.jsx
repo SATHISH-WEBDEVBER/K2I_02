@@ -627,6 +627,21 @@ const AdminDashboard = () => {
             </div>
           )}
         </main>
+      {/* Mobile bottom nav */}
+      <nav className="admin-mobile-nav">
+        <div className="admin-mobile-nav-inner">
+          {navItems.map((n) => (
+            <button
+              key={n.key}
+              className={`admin-mobile-nav-item ${tab === n.key ? "active" : ""}`}
+              onClick={() => setTab(n.key)}
+            >
+              {n.icon}
+              <span>{n.label}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
       </div>
     </div>
   );

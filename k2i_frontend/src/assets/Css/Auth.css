@@ -434,3 +434,11 @@
 
 .auth-step.active span { color: #47ffeb; font-weight: 600; }
 .auth-step.done span   { color: rgba(71, 255, 235, 0.6); }
+
+/* ── Extra mobile fix ── */
+@media (max-width: 380px) {
+  .auth-card { padding: 22px 14px; }
+  .auth-logo h1 { font-size: 1.5rem; }
+  .otp-boxes { gap: 5px; }
+  .otp-box  { width: 38px; height: 46px; font-size: 1.2rem; }
+}

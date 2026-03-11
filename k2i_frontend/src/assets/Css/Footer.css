@@ -1,5 +1,6 @@
 .footer {
   background-color: #002b36;
+  overflow-x: hidden;
   color: white;
   padding: 50px 40px 20px;
   font-family: "Segoe UI", sans-serif;
@@ -92,4 +93,9 @@
 @media (max-width: 600px) {
   .footer-top { grid-template-columns: 1fr; }
   .footer { padding: 30px 20px 15px; }
+}
+
+@media (max-width: 480px) {
+  .footer-brand .footer-logo { font-size: 2rem; }
+  .footer-links-group h4 { font-size: 0.9rem; }
 }

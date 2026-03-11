@@ -441,3 +441,15 @@
   .upload-field.full { grid-column: 1; }
   .admin-topbar h1 { font-size: 1.1rem; }
 }
+
+/* ── Extra mobile overflow fix ── */
+.admin-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.admin-table      { min-width: 480px; }
+
+@media (max-width: 480px) {
+  .admin-main    { padding: 16px 12px; }
+  .admin-topbar  { padding: 10px 14px; }
+  .admin-topbar h1 { font-size: 1rem; }
+  .upload-form   { grid-template-columns: 1fr; }
+  .upload-field.full { grid-column: 1; }
+}

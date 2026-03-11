@@ -294,3 +294,11 @@
   .dash-card { padding: 20px 16px; }
   .dashboard-banner { padding: 32px 16px 28px; }
 }
+
+/* ── Extra mobile fix ── */
+@media (max-width: 420px) {
+  .edit-actions { flex-direction: column; }
+  .edit-actions .btn-primary,
+  .edit-actions .btn-ghost { width: 100%; }
+  .dashboard-avatar { width: 80px; height: 80px; font-size: 2rem; }
+}

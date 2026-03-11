@@ -1,3 +1,9 @@
+/* ══════════════════════════════════════════════════════
+   Whyk2i — Why K2I section
+   FIX: replaced "padding: 10px 210px" (420px total which
+   overflows any mobile screen) with max() clamp approach
+══════════════════════════════════════════════════════ */
+
 .abt-text {
     text-align: center;
     margin: 30px 20px;
@@ -16,11 +22,12 @@
     color: #6b7280;
 }
 
+/* FIXED: was padding: 10px 210px — overflowed on all mobile */
 .abt-text-para-en {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
-    padding: 10px 210px;
+    padding: 10px clamp(12px, 12%, 210px);
     color: #6b7280;
 }
 
@@ -41,7 +48,7 @@
     background-color: #cdecea;
     border: 1px solid #c6cedc;
     border-radius: 8px;
-    padding: 20px 20px;
+    padding: 20px;
     margin: 10px;
     margin-bottom: 25px;
     font-size: 1rem;
@@ -73,95 +80,85 @@
     color: #6b7280;
 }
 
+/* FIXED: was padding: 10px 210px */
 .abt-text-para-ta {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
-    padding: 10px 210px;
+    padding: 10px clamp(12px, 12%, 210px);
     color: #6b7280;
 }
+
+/* ── RESPONSIVE ── */
 
 @media (max-width: 1280px) {
     .abt-main-container {
         flex-direction: column-reverse;
+        gap: 2rem;
+        margin: 0 20px;
+    }
+    .abt-image img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
     }
 }
 
 @media (max-width: 1030px) {
-    .abt-text-para {
-        padding: 10px 90px;
-    }
-
-    .abt-image img {
-        width: 450px;
-        height: 450px;
-    }
+    .abt-image img { width: 450px; height: auto; }
 }
 
 @media (max-width: 850px) {
-    .abt-text-para {
-        padding: 10px 70px;
-    }
+    .abt-text-para-en,
+    .abt-text-para-ta { padding: 10px 8%; }
 }
 
-@media (max-width: 610px) {
-    .abt-text-para {
-        padding: 10px 30px;
+@media (max-width: 768px) {
+    .abt-text-para-en,
+    .abt-text-para-ta {
+        padding: 10px 5%;
         font-size: 1.1rem;
     }
-
-    .abt-text-title {
-        font-size: 1.8rem;
-    }
-
-    .k2i{
-        font-size: 1.9rem;
-    }
+    .abt-text-title-en,
+    .abt-text-title-ta { font-size: 1.8rem; }
+    .k2i { font-size: 2rem; }
+    .abt-main-container { margin: 0 12px; }
+    .abt-image img { max-width: 360px; }
+    .abt-content-ul li { padding: 14px 16px; font-size: 0.95rem; }
 }
 
-@media (max-width: 480px) {
-    .abt-text-para {
-        padding: 8px 15px;
-        font-size: .9rem;
+@media (max-width: 560px) {
+    .abt-text-para-en,
+    .abt-text-para-ta {
+        padding: 8px 4%;
+        font-size: 1rem;
     }
+    .abt-text-title-en,
+    .abt-text-title-ta { font-size: 1.5rem; }
+    .k2i {
+        font-size: 1.7rem;
+        display: block;
+        padding-left: 0;
+        margin-top: 6px;
+    }
+    .abt-image img { max-width: 290px; }
+}
 
-    .abt-text-title {
-        font-size: 1.4rem;
-    }
-
-    .k2i{
-        font-size: 1.5rem;
-    }
-
-    .abt-image img {
-        width: 380px;
-        height: 380px;
-    }
-    .abt-main-container{
-        gap: 2rem;
-    }
+@media (max-width: 450px) {
+    .abt-text { margin: 20px 10px; }
+    .abt-text-para-en,
+    .abt-text-para-ta { padding: 8px 3%; font-size: 0.95rem; }
+    .abt-text-title-en,
+    .abt-text-title-ta { font-size: 1.3rem; }
+    .k2i { font-size: 1.4rem; }
+    .abt-icon { width: 40px; height: 40px; }
+    .abt-content-ul li { padding: 12px; font-size: 0.88rem; gap: 10px; }
+    .abt-image img { max-width: 260px; }
 }
 
 @media (max-width: 380px) {
-    .abt-text-para {
-        padding: 8px 7px;
-        font-size: .9rem;
-    }
-
-    .abt-text-title {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .k2i{
-        font-size: 1.3rem;
-    }
-
-    .abt-image img {
-        width: 300px;
-        height: 300px;
-    }
-    .abt-main-container{
-        gap: 2rem;
-    }
+    .abt-text-title-en,
+    .abt-text-title-ta { font-size: 1.1rem; }
+    .k2i { font-size: 1.2rem; }
+    .abt-image img { max-width: 230px; }
 }
