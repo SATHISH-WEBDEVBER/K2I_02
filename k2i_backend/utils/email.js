@@ -1,13 +1,32 @@
-const nodemailer = require("nodemailer");
+// We no longer need nodemailer! We are using native HTTP fetch to bypass Render's firewall.
 
-const createTransporter = () =>
-  nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.EMAIL_PORT) || 465, // <-- Updated to secure port 465
-    secure: true, // <-- Updated to true for cloud hosting
-    auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-    tls: { rejectUnauthorized: false },
+const sendEmailViaAPI = async (toEmail, subject, htmlContent) => {
+  const apiKey = process.env.BREVO_API_KEY; 
+  
+  if (!apiKey) {
+    throw new Error("Missing BREVO_API_KEY in environment variables.");
+  }
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "api-key": apiKey,
+    },
+    body: JSON.stringify({
+      sender: { name: "K2I Platform", email: process.env.EMAIL_USER }, // Make sure EMAIL_USER is your registered Brevo email
+      to: [{ email: toEmail }],
+      subject: subject,
+      htmlContent: htmlContent,
+    }),
   });
+
+  if (!response.ok) {
+    const errorData = await response.text();
+    throw new Error(`Email API Error: ${errorData}`);
+  }
+};
 
 // ─── OTP Email ────────────────────────────────────────────────────────────────
 const sendOtpEmail = async (email, name, otp, type = "login") => {
@@ -18,12 +37,7 @@ const sendOtpEmail = async (email, name, otp, type = "login") => {
     ? "Use this OTP to complete your login. Do not share it with anyone."
     : "Use this OTP to reset your K2I password. Do not share it.";
 
-  const transporter = createTransporter();
-  await transporter.sendMail({
-    from: `"K2I Platform" <${process.env.EMAIL_USER}>`,
-    to: email,
-    subject,
-    html: `
+  const html = `
       <!DOCTYPE html><html><head><meta charset="utf-8">
       <style>
         body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px}
@@ -51,18 +65,15 @@ const sendOtpEmail = async (email, name, otp, type = "login") => {
           <div class="warn">⚠️ Never share this OTP. K2I team will never ask for it.</div>
         </div>
         <div class="ftr">© 2026 K2I | From Knowledge to Intelligence</div>
-      </div></body></html>`,
-  });
+      </div></body></html>`;
+
+  await sendEmailViaAPI(email, subject, html);
 };
 
 // ─── Welcome Email ─────────────────────────────────────────────────────────────
 const sendWelcomeEmail = async (email, name) => {
-  const transporter = createTransporter();
-  await transporter.sendMail({
-    from: `"K2I Platform" <${process.env.EMAIL_USER}>`,
-    to: email,
-    subject: "Welcome to K2I - Knowledge2Intelligence! 🚀",
-    html: `
+  const subject = "Welcome to K2I - Knowledge2Intelligence! 🚀";
+  const html = `
       <!DOCTYPE html><html><head><style>
         body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px}
         .wrap{max-width:520px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden}
@@ -80,20 +91,17 @@ const sendWelcomeEmail = async (email, name) => {
           <p>Your account has been created. Explore our tutorials, video guides, projects in Tamil & English.</p>
         </div>
         <div class="ftr">© 2026 K2I | From Knowledge to Intelligence</div>
-      </div></body></html>`,
-  });
+      </div></body></html>`;
+
+  await sendEmailViaAPI(email, subject, html);
 };
 
 // ─── Password Reset Email (kept as fallback) ──────────────────────────────────
 const sendPasswordResetEmail = async (email, name, resetToken) => {
   const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
   const resetUrl = `${frontendUrl}/reset-password/${resetToken}`;
-  const transporter = createTransporter();
-  await transporter.sendMail({
-    from: `"K2I Platform" <${process.env.EMAIL_USER}>`,
-    to: email,
-    subject: "Password Reset - K2I Platform",
-    html: `
+  const subject = "Password Reset - K2I Platform";
+  const html = `
       <!DOCTYPE html><html><head><style>
         body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px}
         .wrap{max-width:520px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden}
@@ -112,8 +120,9 @@ const sendPasswordResetEmail = async (email, name, resetToken) => {
           <div class="warn">⚠️ Expires in 30 minutes.</div>
         </div>
         <div class="ftr">© 2026 K2I</div>
-      </div></body></html>`,
-  });
+      </div></body></html>`;
+
+  await sendEmailViaAPI(email, subject, html);
 };
 
 module.exports = { sendOtpEmail, sendWelcomeEmail, sendPasswordResetEmail };
