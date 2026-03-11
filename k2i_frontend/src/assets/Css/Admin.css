@@ -87,6 +87,11 @@
   overflow-x: hidden;
 }
 
+/* ── Mobile Nav (Hidden on Desktop) ── */
+.admin-mobile-nav {
+  display: none;
+}
+
 /* ── Stats grid ── */
 .stats-grid {
   display: grid;
@@ -433,13 +438,68 @@
 .confirm-box p  { color: rgba(255,248,240,0.55); font-size: 0.9rem; margin-bottom: 24px; }
 .confirm-actions { display: flex; gap: 12px; justify-content: center; }
 
-/* ── Mobile responsive ── */
+/* ══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .admin-sidebar { display: none; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .upload-form { grid-template-columns: 1fr; }
   .upload-field.full { grid-column: 1; }
   .admin-topbar h1 { font-size: 1.1rem; }
+  
+  /* Add space at bottom so content isn't hidden by the new mobile menu */
+  .admin-main {
+    padding-bottom: 85px; 
+  }
+
+  /* ── Mobile Bottom Tab Menu styles (Fixed the overlap issue!) ── */
+  .admin-mobile-nav {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #001a22;
+    border-top: 1px solid rgba(71, 255, 235, 0.15);
+    z-index: 1000;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+  }
+
+  .admin-mobile-nav-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .admin-mobile-nav-item {
+    background: transparent;
+    border: none;
+    color: rgba(255, 248, 240, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .admin-mobile-nav-item.active {
+    color: #47ffeb;
+  }
+
+  .admin-mobile-nav-item svg {
+    font-size: 1.3rem;
+  }
 }
 
 /* ── Extra mobile overflow fix ── */
@@ -447,7 +507,7 @@
 .admin-table      { min-width: 480px; }
 
 @media (max-width: 480px) {
-  .admin-main    { padding: 16px 12px; }
+  .admin-main    { padding: 16px 12px 85px; } /* Kept bottom padding here too */
   .admin-topbar  { padding: 10px 14px; }
   .admin-topbar h1 { font-size: 1rem; }
   .upload-form   { grid-template-columns: 1fr; }
