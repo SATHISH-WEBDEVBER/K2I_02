@@ -1,1 +1,25 @@
+# Environment files
 **/.env
+
+# Node modules
+**/node_modules
+
+# Build folders
+**/dist
+**/build
+
+# Logs
+**/logs
+**/*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# IDE files
+.vscode
+.idea
